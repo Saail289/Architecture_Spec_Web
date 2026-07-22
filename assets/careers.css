@@ -110,6 +110,16 @@ html, body { height: 100%; overflow-x: hidden; }
   object-position: var(--img-pos, 50% 50%);
 }
 
+/* Violet wash over the photography, lifted on hover so the image reads true.
+   multiply keeps the shadows tinted rather than just veiling the whole frame. */
+.role__frame::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(155deg, rgba(108, 43, 217, 0.26), rgba(61, 26, 133, 0.38));
+  mix-blend-mode: multiply;
+  transition: opacity .5s cubic-bezier(.16, 1, .3, 1);
+}
+.role__frame:hover::after { opacity: 0; }
+
 /* ---------- footer ---------- */
 .ww-foot {
   min-height: 100vh; display: flex; flex-direction: column;
