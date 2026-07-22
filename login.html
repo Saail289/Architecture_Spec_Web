@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in — Hubtown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/login.css">
+</head>
+<body class="lg-body">
+
+<main class="lg">
+
+  <!-- ---------- form side ---------- -->
+  <section class="lg__panel">
+    <div class="lg__inner">
+
+      <a class="lg__mark" href="index.html">HUB<b>TOWN</b></a>
+
+      <h1 class="lg__title">Welcome back</h1>
+      <p class="lg__sub">
+        Don't have an account yet?
+        <a href="apply.html">Get in touch</a>
+      </p>
+
+      <form class="lg__form" id="lgForm" novalidate>
+
+        <label class="field">Email address
+          <input required type="email" name="email" id="lgEmail"
+                 placeholder="you@company.com" autocomplete="email">
+          <span class="field__err" id="lgEmailErr" role="alert"></span>
+        </label>
+
+        <label class="field">Password
+          <span class="field__wrap">
+            <input required type="password" name="password" id="lgPass"
+                   placeholder="Enter your password" autocomplete="current-password">
+            <button class="field__peek" type="button" id="lgPeek"
+                    aria-label="Show password" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path class="peek-eye" d="M1.5 12S5 5.5 12 5.5 22.5 12 22.5 12 19 18.5 12 18.5 1.5 12 1.5 12Z"/>
+                <circle class="peek-eye" cx="12" cy="12" r="3.2"/>
+                <path class="peek-slash" d="M4 20 20 4"/>
+              </svg>
+            </button>
+          </span>
+          <span class="field__err" id="lgPassErr" role="alert"></span>
+        </label>
+
+        <div class="lg__row">
+          <label class="lg__check">
+            <input type="checkbox" name="remember">
+            <span>Remember me</span>
+          </label>
+          <a class="lg__link" href="#reset">Forgot password?</a>
+        </div>
+
+        <button class="btn btn--solid lg__submit" type="submit">
+          Log in <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="lg__note" id="lgNote" role="status"></p>
+
+        <div class="lg__or"><span>or</span></div>
+
+        <button class="btn lg__sso" type="button">Log in with SSO</button>
+      </form>
+
+      <p class="lg__foot">
+        This is a design preview — no credentials are sent or stored.
+      </p>
+    </div>
+  </section>
+
+  <!-- ---------- pattern side ---------- -->
+  <aside class="lg__art" aria-hidden="true">
+    <div class="lg__grid"></div>
+    <div class="lg__glow"></div>
+    <div class="lg__quote">
+      <p class="lg__quote-text">We build the <em>future</em> of real estate</p>
+      <p class="lg__quote-meta">Four decades across Mumbai, Thane, Pune &amp; Ahmedabad</p>
+    </div>
+  </aside>
+
+</main>
+
+<script src="assets/login.js"></script>
+</body>
+</html>
