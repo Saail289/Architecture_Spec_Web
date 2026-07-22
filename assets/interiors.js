@@ -10,10 +10,11 @@
   };
 
   // Room sets differ by building type — a commercial tower has no master bedroom.
-  // The hero panel carries no room label; it reuses the first room's image as its backdrop.
+  // The hero panel carries no room label; it shows the project's exterior thumbnail,
+  // the same image used on the projects map card.
   var ROOM_SETS = {
     Commercial: [
-      { hero: true,                             img: 'reception' },
+      { hero: true },
       { room: 'Reception',      tag: 'Arrival',  img: 'reception' },
       { room: 'Grand Lobby',    tag: 'Common',   img: 'lobby' },
       { room: 'Workspace',      tag: 'Offices',  img: 'workspace' },
@@ -22,7 +23,7 @@
       { room: 'Sky Terrace',    tag: 'Amenity',  img: 'terrace' }
     ],
     Residential: [
-      { hero: true,                             img: 'arrival' },
+      { hero: true },
       { room: 'Arrival',        tag: 'Arrival',  img: 'arrival' },
       { room: 'Grand Lobby',    tag: 'Common',   img: 'lobby' },
       { room: 'Living Room',    tag: 'Residence', img: 'living-room' },
@@ -80,7 +81,9 @@
 
     el.innerHTML =
       '<div class="panel-i__img" style="background:' + GRADS[i % GRADS.length] + '">' +
-        '<img class="panel-i__photo" src="uploads/images/interiors/' + propSlug + '/' + r.img + '.jpeg"' +
+        '<img class="panel-i__photo" src="' + (r.hero
+          ? 'uploads/images/projects/' + propSlug + '.jpeg'
+          : 'uploads/images/interiors/' + propSlug + '/' + r.img + '.jpeg') + '"' +
           ' alt="' + esc(prop.name) + (r.room ? ' — ' + esc(r.room) : '') + '"' +
           (i > 1 ? ' loading="lazy"' : '') + ' decoding="async">' +
         '<div class="panel-i__grid"></div>' + room +
