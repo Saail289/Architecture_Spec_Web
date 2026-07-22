@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hubtown — We build the future of real estate</title>
+<meta name="description" content="Four decades of shaping skylines across India — residential, commercial and civic landmarks designed to outlast the moment they were built in.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/home.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader__pct"><span id="loadPct">0</span><span class="loader__sign">%</span></div>
+  <div class="loader__track"><div class="loader__bar" id="loadBar"></div></div>
+  <div class="loader__caption">Loading content</div>
+</div>
+
+<!-- SCROLL-SCRUBBED BACKGROUND VIDEO -->
+<video class="bg-video" id="bgVideo" src="uploads/scrub60.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+<div class="bg-scrim" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header class="site-head">
+  <a href="#future" class="wordmark">HUB<b>TOWN</b></a>
+  <div class="site-head__right">
+    <a href="#connect" class="site-head__login">Login</a>
+    <button class="site-head__menu" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- RIGHT RAIL SCROLL-SPY -->
+<nav class="rail" id="rail" aria-label="Sections"></nav>
+
+<!-- SECTION COUNTER -->
+<div class="counter">
+  <div class="counter__num"><span id="counterCurrent">01</span> / 06</div>
+  <div class="counter__track"><div class="counter__bar" id="counterBar"></div></div>
+</div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/918657995844" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <span class="whatsapp__glyph"><span></span><span></span><span></span></span>
+</a>
+
+<!-- 01 FUTURE / HERO -->
+<section id="future" class="panel panel--hero" data-idx="0">
+  <div class="ghost ghost--hero" aria-hidden="true">01</div>
+  <div class="hero__body" data-reveal>
+    <p class="eyebrow">Future</p>
+    <h1 class="display display--hero">We build the <em>future</em> of real estate</h1>
+    <p class="lede">Four decades of shaping skylines across India — residential, commercial and civic landmarks designed to outlast the moment they were built in.</p>
+    <a class="btn hero__cta" href="projects.html">Explore our projects <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="stats" data-reveal>
+    <div class="stat"><div class="stat__n" data-stat>24</div><div class="stat__label">Mumbai</div></div>
+    <div class="stat"><div class="stat__n" data-stat>11</div><div class="stat__label">Thane</div></div>
+    <div class="stat"><div class="stat__n" data-stat>08</div><div class="stat__label">Pune</div></div>
+    <div class="stat"><div class="stat__n" data-stat>06</div><div class="stat__label">Ahmedabad</div></div>
+  </div>
+</section>
+
+<!-- 02 INNOVATION -->
+<section id="innovation" class="panel panel--mid" data-idx="1">
+  <div class="ghost ghost--tl" aria-hidden="true">02</div>
+  <div class="panel__body panel__body--right" data-reveal>
+    <p class="eyebrow">Innovation</p>
+    <h2 class="display">We <em>lead</em> the way in development</h2>
+    <p class="lede">New materials, new methods, new standards — every project is a proving ground for how cities should be built next.</p>
+    <a class="btn" href="careers.html">Work with us <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- 03 EXCELLENCE -->
+<section id="excellence" class="panel panel--mid" data-idx="2">
+  <div class="ghost ghost--bl" aria-hidden="true">03</div>
+  <div class="panel__body" data-reveal>
+    <p class="eyebrow">Excellence</p>
+    <h2 class="display">To build what others only <em>imagine</em></h2>
+    <a class="btn" href="#connect">Discover our vision <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- 04 PURPOSE -->
+<section id="purpose" class="panel panel--mid" data-idx="3">
+  <div class="ghost ghost--br" aria-hidden="true">04</div>
+  <div class="panel__body panel__body--legacy" data-reveal>
+    <p class="eyebrow">Purpose</p>
+    <h2 class="display">Shape the land with<br><em>purpose</em></h2>
+  </div>
+</section>
+
+<!-- 05 LEGACY -->
+<section id="legacy" class="panel panel--mid" data-idx="4">
+  <div class="ghost ghost--tl" aria-hidden="true">05</div>
+  <div class="panel__body panel__body--legacy" data-reveal>
+    <p class="eyebrow">Legacy</p>
+    <h2 class="display">And define <em>tomorrow's</em> landscape</h2>
+    <a class="btn" href="projects.html">Explore our projects <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- 06 CONNECT / FOOTER -->
+<section id="connect" class="panel panel--connect" data-idx="5">
+  <div class="ghost ghost--tr" aria-hidden="true">06</div>
+  <div class="connect__body" data-reveal>
+    <p class="eyebrow">Connect</p>
+    <h2 class="display">Let's build what comes <em>next</em></h2>
+  </div>
+  <footer class="site-foot" data-reveal>
+    <div>
+      <div class="wordmark wordmark--sm">HUB<b>TOWN</b></div>
+      <p class="site-foot__note">© 2026 Hubtown. Building the future of Indian real estate since 1985.</p>
+    </div>
+    <div>
+      <div class="site-foot__head">Company</div>
+      <div class="site-foot__links">
+        <a href="#future">About us</a>
+        <a href="projects.html">Projects</a>
+        <a href="careers.html">Careers</a>
+        <a href="#future">Newsroom</a>
+      </div>
+    </div>
+    <div>
+      <div class="site-foot__head">Contact</div>
+      <div class="site-foot__links">
+        <a href="mailto:hello@hubtown.co.in">hello@hubtown.co.in</a>
+        <a href="tel:+918657995844">+91 86579 95844</a>
+        <span class="site-foot__addr">Hubtown House, Andheri (E)<br>Mumbai 400 059</span>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<div class="grain" aria-hidden="true"></div>
+
+<script src="assets/home.js"></script>
+</body>
+</html>

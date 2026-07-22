@@ -1,0 +1,101 @@
+/* Hubtown design system — extracted from the .dc.html prototypes. */
+:root {
+  --ink: #0a0a0b;
+  --paper: #F6F3F4;
+  --violet: #6C2BD9;
+  --lilac: #9B6BFF;
+  --lilac-soft: #C9B4FF;
+  --muted: #9C939A;
+  --muted-2: #B8AEB6;
+  --muted-3: #C9C3C9;
+  --dim: #58525A;
+  --hair: rgba(245, 242, 244, 0.08);
+  --hair-2: rgba(245, 242, 244, 0.12);
+  --hair-3: rgba(245, 242, 244, 0.18);
+  --serif: Fraunces, Georgia, serif;
+  --sans: Inter, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--paper); text-decoration: none; }
+a:hover { color: var(--lilac); }
+
+/* --- shared type --- */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  background: var(--violet);
+  flex: none;
+}
+.display {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.display em { font-style: italic; font-weight: 400; color: var(--lilac); }
+
+.wordmark {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+}
+.wordmark b { font-weight: inherit; color: var(--lilac); }
+
+/* --- shared pill button --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  border: 1px solid var(--hair-3);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper);
+  transition: gap .3s, background .3s, border-color .3s, box-shadow .3s, color .3s;
+}
+.btn:hover {
+  gap: 20px;
+  background: var(--violet);
+  border-color: var(--violet);
+  box-shadow: 0 0 32px rgba(108, 43, 217, 0.45);
+  color: #fff;
+}
+.btn--solid { background: var(--violet); border-color: var(--violet); color: #fff; }
+.btn--solid:hover { background: var(--lilac); border-color: var(--lilac); }
+
+/* --- reduced motion: kill decorative loops, keep content visible --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

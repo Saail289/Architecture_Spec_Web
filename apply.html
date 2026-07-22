@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Application — Hubtown</title>
+<meta name="description" content="Apply to join the team building tomorrow's skyline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/apply.css">
+</head>
+<body>
+
+<canvas class="water" id="water" aria-hidden="true"></canvas>
+<div class="water-scrim" aria-hidden="true"></div>
+
+<div class="scroller" id="scroller">
+
+  <header class="ap-head">
+    <a href="index.html" class="wordmark">HUB<b>TOWN</b></a>
+    <a href="careers.html" class="ap-head__back"><span aria-hidden="true">←</span> Back to roles</a>
+  </header>
+
+  <div class="ap-stage">
+
+    <!-- SUCCESS -->
+    <div class="done" id="done" hidden>
+      <div class="done__tick" aria-hidden="true">✓</div>
+      <h1 class="done__title">Application received</h1>
+      <p class="done__note">Thanks for applying to Hubtown. Our team reviews every application personally — if there's a fit, you'll hear from us within two weeks.</p>
+      <a class="btn" href="careers.html">Explore more roles <span aria-hidden="true">→</span></a>
+    </div>
+
+    <!-- FORM -->
+    <div class="ap-card" id="apCard">
+      <aside class="ap-aside">
+        <div class="ap-kicker">Application</div>
+        <h1 class="ap-title">Join the team building tomorrow's skyline<span class="dot">.</span></h1>
+        <p class="ap-lede">Tell us a little about you. It takes about five minutes — there are no trick questions.</p>
+        <div class="ap-applying">
+          <div class="ap-applying__label">Applying for</div>
+          <div class="ap-applying__role" id="roleLabel">Open application</div>
+        </div>
+        <ol class="ap-steps">
+          <li><span class="ap-steps__n">01</span> Your details</li>
+          <li><span class="ap-steps__n">02</span> Experience</li>
+          <li><span class="ap-steps__n">03</span> About you</li>
+        </ol>
+      </aside>
+
+      <form class="ap-form" id="apForm">
+
+        <fieldset class="ap-group">
+          <legend class="ap-legend">01 &nbsp;Your details</legend>
+          <div class="ap-grid">
+            <label class="field">Full name
+              <input required type="text" name="name" placeholder="Jane Doe" autocomplete="name">
+            </label>
+            <label class="field">Email
+              <input required type="email" name="email" placeholder="jane@email.com" autocomplete="email">
+            </label>
+            <label class="field">Phone
+              <input type="tel" name="phone" placeholder="+91 00000 00000" autocomplete="tel">
+            </label>
+            <label class="field">Current location
+              <input type="text" name="location" placeholder="City, Country">
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="ap-group">
+          <legend class="ap-legend">02 &nbsp;Experience</legend>
+          <div class="ap-grid">
+            <label class="field">Role you're applying for
+              <select name="role" id="roleSelect"></select>
+            </label>
+            <label class="field">Years of experience
+              <select name="years">
+                <option>0 – 2 years</option>
+                <option>3 – 5 years</option>
+                <option>6 – 9 years</option>
+                <option>10+ years</option>
+              </select>
+            </label>
+            <label class="field">Portfolio / LinkedIn URL
+              <input type="url" name="url" placeholder="https://">
+            </label>
+            <label class="field">Earliest start / notice period
+              <select name="start">
+                <option>Immediately</option>
+                <option>Within 1 month</option>
+                <option>1 – 3 months</option>
+                <option>3+ months</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="ap-group">
+          <legend class="ap-legend">03 &nbsp;About you</legend>
+          <div class="ap-stack">
+            <label class="field">Why do you want to build with Hubtown?
+              <textarea rows="4" name="why" placeholder="A few sentences about what draws you to this work…"></textarea>
+            </label>
+            <label class="field">A project you're proud of
+              <textarea rows="3" name="proud" placeholder="What was it, and what was your role?"></textarea>
+            </label>
+            <div class="field">Resume / CV
+              <label class="dropzone">
+                Drop a PDF here, or <span class="dropzone__link">browse</span>
+                <input type="file" name="resume" accept="application/pdf" hidden>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <label class="consent">
+          <input required type="checkbox" name="consent">
+          I consent to Hubtown storing my details for the purpose of this application.
+        </label>
+
+        <div class="ap-submit">
+          <span class="ap-submit__note">All fields are placeholders for this preview.</span>
+          <button class="btn btn--solid ap-submit__btn" type="submit">Submit application <span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script src="assets/water.js"></script>
+<script src="assets/apply.js"></script>
+</body>
+</html>

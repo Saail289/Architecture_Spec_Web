@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects map — Hubtown</title>
+<meta name="description" content="Hubtown developments across Mumbai MMR — residential and commercial projects, completed, under construction and upcoming.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/projects.css">
+</head>
+<body class="map-body">
+
+<div class="map" id="map">
+  <div class="map__parallax" id="parallax">
+    <div class="map__world">
+      <video class="map__video" id="zoomVideo" data-src="uploads/scrub60-dc62f9f0.mp4" muted playsinline preload="none" aria-hidden="true"></video>
+      <div class="map__tint" aria-hidden="true"></div>
+
+      <!-- wide-shot region tags -->
+      <div class="tags" id="tags">
+        <button class="tag tag--primary" id="zoomTag" aria-label="Zoom to Suburban Mumbai projects">
+          <span class="tag__ping tag__ping--lg" aria-hidden="true"></span>
+          <span class="tag__diamond tag__diamond--lg"><span class="tag__dot tag__dot--lg"></span></span>
+          <span class="tag__plate">
+            <span class="tag__name">Suburban Mumbai</span>
+            <span class="tag__meta tag__meta--accent">06 projects · Click to zoom</span>
+          </span>
+        </button>
+        <div class="tag tag--south" aria-hidden="true">
+          <span class="tag__ping" style="animation-delay:.8s"></span>
+          <span class="tag__diamond"><span class="tag__dot"></span></span>
+          <span class="tag__plate">
+            <span class="tag__name tag__name--sm">South Mumbai</span>
+            <span class="tag__meta">01 project</span>
+          </span>
+        </div>
+        <div class="tag tag--west" aria-hidden="true">
+          <span class="tag__ping" style="animation-delay:1.6s"></span>
+          <span class="tag__diamond"><span class="tag__dot"></span></span>
+          <span class="tag__plate">
+            <span class="tag__name tag__name--sm">Western Suburbs</span>
+            <span class="tag__meta">03 projects</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- project markers, revealed at full zoom -->
+      <div class="markers" id="markers"></div>
+    </div>
+  </div>
+
+  <div class="map__vignette" aria-hidden="true"></div>
+
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor__ring" id="cursorRing"></span>
+    <span class="cursor__dot"></span>
+  </div>
+
+  <header class="map-head">
+    <div class="map-head__left">
+      <a href="index.html" class="map-head__back">← Back</a>
+      <a href="index.html" class="wordmark wordmark--sm">HUB<b>TOWN</b></a>
+    </div>
+    <p class="eyebrow map-head__label">Projects map · Mumbai MMR</p>
+  </header>
+
+  <div class="chips" id="chips" role="group" aria-label="Filter projects"></div>
+
+  <div class="hud hud--left">
+    <div class="hud__row">Zoom <span class="hud__val" id="zoomText">1.00×</span></div>
+    <div class="hud__track"><div class="hud__bar" id="zoomBar"></div></div>
+    <div class="hud__row"><span class="hud__val" id="visCount">06</span> / <span id="totalCount">06</span> projects</div>
+  </div>
+
+  <div class="compass" aria-hidden="true">
+    <div class="compass__dial">
+      <span class="compass__n">N</span><span class="compass__s">S</span>
+      <span class="compass__w">W</span><span class="compass__e">E</span>
+      <span class="compass__needle"></span>
+    </div>
+    <span class="compass__deg">000°</span>
+  </div>
+
+  <div class="card-slot" id="cardSlot"></div>
+</div>
+
+<script src="assets/projects.js"></script>
+</body>
+</html>
