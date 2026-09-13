@@ -14,18 +14,26 @@
   var STATUSES = ['Completed', 'Under Construction', 'Upcoming'];
   var STATUS_COLOR = { 'Completed': '#9B6BFF', 'Under Construction': '#F6F3F4', 'Upcoming': '#9C939A' };
   var AUTO_ZOOM_MS = 5000;
+  // Focus point of the push, as a % of the rendered map. Matches the Suburban
+  // Mumbai tag so the zoom lands on it. ZOOM_MAX is the still's scale at full
+  // zoom; the 5792px source stays above 1:1 on a 1920px viewport at 4x.
+  var ZOOM_FOCUS_X = 45, ZOOM_FOCUS_Y = 54;
+  var ZOOM_MAX = 4;
   var PARALLAX = 24;
   var WORLD_W = 1882, WORLD_H = 987;
 
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (id) { return document.getElementById(id); };
 
-  var root = $('map'), video = $('zoomVideo'), tags = $('tags'), markersWrap = $('markers');
+  var root = $('map'), mapImg = $('zoomImg'), tags = $('tags'), markersWrap = $('markers');
   var parallaxEl = $('parallax'), cursorEl = $('cursor'), cursorRing = $('cursorRing');
   var zoomText = $('zoomText'), zoomBar = $('zoomBar'), visCountEl = $('visCount');
   var chipsEl = $('chips'), cardSlot = $('cardSlot');
 
   var active = -1, hovered = -1, filters = {};
+
+  mapImg.style.setProperty('--zoom-x', ZOOM_FOCUS_X + '%');
+  mapImg.style.setProperty('--zoom-y', ZOOM_FOCUS_Y + '%');
 
   /* ---------------- filtering ---------------- */
   function matches(p) {
@@ -121,7 +129,7 @@
   var s = cover * 1.02, ts = s;
   var px = 0, py = 0, tpx = 0, tpy = 0;
   var cx = vw / 2, cy = vh / 2, tcx = cx, tcy = cy;
-  var auto = null, vidTime = 0, lastZoomShown = 0, seekStuckSince = 0, seekStuckAt = 0;
+  var auto = null, lastZoomShown = 0;
 
   addEventListener('pointermove', function (e) {
     tcx = e.clientX; tcy = e.clientY;
@@ -129,7 +137,8 @@
     tpy = ((e.clientY / innerHeight) - 0.5) * -PARALLAX;
   });
 
-  // Pan is intentionally disabled — the camera path is baked into the flythrough video.
+  // ponytail: pan stays disabled — the zoom targets one tuned focus point, so free
+  // panning would need marker reprojection for no gain. Add if regions become pannable.
   root.addEventListener('wheel', function (e) {
     e.preventDefault();
     auto = null; // user takes over from the auto-zoom tween
@@ -160,25 +169,6 @@
     });
   });
 
-  /* ---------------- flythrough video ---------------- */
-  // The served file may lack byte-range support, so currentTime assignments get
-  // silently ignored. Load into a blob URL, which is always fully seekable.
-  fetch(video.getAttribute('data-src'))
-    .then(function (r) { return r.blob(); })
-    .then(function (b) {
-      video.src = URL.createObjectURL(b);
-      video.load();
-      video.pause();
-      // The decode can wedge (also on retry) — poll and re-kick a few times.
-      var tries = 0;
-      var kick = setInterval(function () {
-        if (video.readyState >= 2 || ++tries > 6) return clearInterval(kick);
-        video.load();
-        video.pause();
-      }, 800);
-    })
-    .catch(function () {});
-
   /* ---------------- loop ---------------- */
   (function loop() {
     var now = performance.now();
@@ -202,25 +192,10 @@
     var zr = s / cover;
     var phase = Math.min(1, Math.max(0, (zr - 1) / (maxS / cover - 1)));
 
-    if (video.duration && video.readyState >= 2) {
-      var target = phase * Math.max(0, video.duration - 0.05);
-      vidTime += (target - vidTime) * 0.12;
-      if (!video.seeking) {
-        if (Math.abs(video.currentTime - vidTime) > 0.005) {
-          try { video.currentTime = vidTime; } catch (e) {}
-        }
-        seekStuckSince = 0;
-      } else if (!seekStuckSince) {
-        seekStuckSince = now; seekStuckAt = video.currentTime;
-      } else if (now - seekStuckSince > 500) {
-        // watchdog: a seek that never completes gets re-issued
-        if (Math.abs(video.currentTime - seekStuckAt) < 0.001) {
-          vidTime = target;
-          try { video.currentTime = target; } catch (e) {}
-        }
-        seekStuckSince = 0;
-      }
-    }
+    // Zoom the still toward the focus region. object-fit:cover already crops the
+    // 4:3 source into the wide world box, so scaling from a tuned origin reads as
+    // a camera push without any per-frame decode.
+    mapImg.style.transform = 'scale(' + (1 + phase * (ZOOM_MAX - 1)).toFixed(4) + ')';
 
     // wide-shot tags fade out as zoom begins; markers fade in near full zoom
     var tagO = Math.min(1, Math.max(0, 1 - phase / 0.18));
