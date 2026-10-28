@@ -16,17 +16,47 @@ const TYPES = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.json': 'application/json; charset=utf-8',
+  '.bin': 'application/octet-stream',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon'
 };
 
+const CHOICES = ['recraft-v4.1', 'nano-banana-2.1', 'current', 'redo', null];
+
+// The image picker (generated/compare.html) saves its picks here. Only this one route accepts writes,
+// and only a small, well-formed picks object.
+function saveSelections(req, res) {
+  let body = '';
+  req.on('data', (chunk) => {
+    body += chunk;
+    if (body.length > 256 * 1024) req.destroy();
+  });
+  req.on('end', () => {
+    try {
+      const data = JSON.parse(body);
+      const ok = data && typeof data.picks === 'object' && Object.entries(data.picks).every(([k, v]) =>
+        /^[\w-]+\/[\w-]+$/.test(k) && v && CHOICES.includes(v.choice ?? null) && (v.note == null || typeof v.note === 'string'));
+      if (!ok) throw new Error('bad shape');
+      fs.mkdirSync(path.join(ROOT, 'generated'), { recursive: true });
+      fs.writeFileSync(path.join(ROOT, 'generated', 'selections.json'), JSON.stringify(data, null, 2));
+      res.writeHead(204).end();
+    } catch (err) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' }).end('Invalid selections');
+    }
+  });
+}
+
 http.createServer((req, res) => {
   const urlPath = decodeURIComponent(req.url.split('?')[0]);
+  if (req.method === 'POST' && urlPath === '/generated/selections') return saveSelections(req, res);
   const rel = urlPath === '/' ? 'index.html' : urlPath.replace(/^\/+/, '');
   const file = path.join(ROOT, rel);
 
   // never serve outside site/
-  if (path.relative(ROOT, file).startsWith('..')) {
+  // ...and never serve dotfiles (.env holds API keys)
+  if (path.relative(ROOT, file).startsWith('..') || rel.split(/[\\/]/).some((seg) => seg.startsWith('.'))) {
     res.writeHead(403).end('Forbidden');
     return;
   }

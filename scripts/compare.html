@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image Picker</title>
+<!-- Template: scripts/gen-images.mjs copies this to generated/compare.html. Open it through
+     node serve.js (http://localhost:8080/generated/compare.html) so picks save to
+     generated/selections.json. -->
+<style>
+  :root { --ink:#0a0a0b; --panel:#141217; --paper:#f6f3f4; --muted:#9c939a; --dim:#58525a; --lilac:#9b6bff; --violet:#6c2bd9; --hair:rgba(245,242,244,.12); --ok:#5fd39a; --warn:#f0b45a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ink); color: var(--paper); font: 14px/1.5 Inter, system-ui, sans-serif; }
+  header { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center;
+    padding: 16px 24px; background: rgba(10,10,11,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--hair); }
+  h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  .stat { color: var(--muted); font-size: 13px; }
+  .stat b { color: var(--paper); }
+  #save { margin-left: auto; font-size: 13px; color: var(--muted); }
+  #save.ok { color: var(--ok); } #save.err { color: var(--warn); }
+  main { padding: 8px 24px 80px; max-width: 1500px; margin: 0 auto; }
+  h2 { margin: 40px 0 4px; font-size: 22px; font-weight: 600; }
+  h2 small { color: var(--muted); font-weight: 400; font-size: 13px; margin-left: 10px; }
+  .slot { margin-top: 18px; padding: 16px; border: 1px solid var(--hair); border-radius: 12px; background: var(--panel); }
+  .slot.picked { border-color: rgba(155,107,255,.45); }
+  .slot__head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
+  .slot__name { font-weight: 600; letter-spacing: .04em; }
+  .slot__state { font-size: 12px; color: var(--dim); }
+  .slot.picked .slot__state { color: var(--lilac); }
+  .opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+  .opt { position: relative; margin: 0; border: 2px solid transparent; border-radius: 10px; overflow: hidden; cursor: pointer;
+    background: #000; transition: border-color .2s, opacity .2s; }
+  .opt img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .opt figcaption { display: flex; justify-content: space-between; gap: 8px; padding: 8px 10px; font-size: 12px; color: var(--muted); background: #0e0d10; }
+  .opt figcaption b { color: var(--paper); font-weight: 600; }
+  .opt:hover { border-color: rgba(155,107,255,.5); }
+  .opt.on { border-color: var(--lilac); box-shadow: 0 0 0 3px rgba(108,43,217,.35); }
+  .slot.picked .opt:not(.on) { opacity: .5; }
+  .opt .tick { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; display: none;
+    align-items: center; justify-content: center; background: var(--violet); color: #fff; font-weight: 700; }
+  .opt.on .tick { display: flex; }
+  .opt a.full { position: absolute; top: 10px; left: 10px; padding: 4px 8px; border-radius: 6px; font-size: 11px;
+    background: rgba(0,0,0,.6); color: var(--paper); text-decoration: none; opacity: 0; transition: opacity .2s; }
+  .opt:hover a.full, .opt a.full:focus { opacity: 1; }
+  .opt--missing { display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 9; color: var(--dim); cursor: default; }
+  .row2 { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+  .btn { padding: 7px 12px; border: 1px solid var(--hair); border-radius: 999px; background: none; color: var(--muted);
+    font: inherit; font-size: 12px; cursor: pointer; }
+  .btn:hover { color: var(--paper); border-color: var(--muted); }
+  .btn.on { background: var(--warn); border-color: var(--warn); color: #1a1205; }
+  .note { flex: 1; min-width: 220px; padding: 7px 10px; border: 1px solid var(--hair); border-radius: 8px;
+    background: #0e0d10; color: var(--paper); font: inherit; font-size: 13px; }
+  details { margin-top: 10px; color: var(--muted); font-size: 12px; }
+  summary { cursor: pointer; }
+  .empty { padding: 60px 0; color: var(--muted); }
+  :focus-visible { outline: 2px solid var(--lilac); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Image Picker</h1>
+  <span class="stat" id="progress"></span>
+  <span class="stat" id="cost"></span>
+  <span id="save" role="status">Loading…</span>
+</header>
+<main id="main"><p class="empty">Loading manifest…</p></main>
+
+<script>
+(function () {
+  var LABEL = { 'recraft-v4.1': 'Recraft v4.1', 'nano-banana-2.1': 'Nano Banana 2.1', current: 'Current (live site)' };
+  var picks = {}, slots = [], saveTimer = null;
+  var main = document.getElementById('main'), saveEl = document.getElementById('save');
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  // The image already live on the site for this slot, if any (Harmony has a full set).
+  function livePath(slug, file) {
+    if (file === 'card') return '../uploads/images/projects/' + slug + '.jpeg';
+    if (/^\d\d-/.test(file)) return null; // video-only keyframes have no site slot
+    return '../uploads/images/interiors/' + slug + '/' + file + '.jpeg';
+  }
+
+  function setStatus(text, cls) { saveEl.textContent = text; saveEl.className = cls || ''; }
+
+  function save() {
+    clearTimeout(saveTimer);
+    setStatus('Saving…');
+    saveTimer = setTimeout(function () {
+      fetch('selections', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ updated_at: new Date().toISOString(), picks: picks }) })
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          setStatus('Saved to generated/selections.json', 'ok');
+        })
+        .catch(function () {
+          setStatus('Not saved: open this page via node serve.js (localhost:8080)', 'err');
+        });
+    }, 300);
+  }
+
+  function progress() {
+    var chosen = slots.filter(function (s) { var p = picks[s.key]; return p && p.choice; }).length;
+    document.getElementById('progress').innerHTML = '<b>' + chosen + '</b> / ' + slots.length + ' slots decided';
+  }
+
+  function render(manifest) {
+    var groups = {};
+    manifest.results.forEach(function (r) {
+      var key = r.slug + '/' + r.file;
+      if (!groups[key]) { groups[key] = { key: key, slug: r.slug, file: r.file, prompt: r.prompt, opts: {} }; slots.push(groups[key]); }
+      groups[key].opts[r.model] = r;
+    });
+    // Results arrive in finish order; show them as a tour: card, rooms in walkthrough order, video frames last.
+    var ORDER = ['card', 'arrival', 'reception', 'lobby', 'living-room', 'workspace', 'master-bedroom', 'boardroom',
+      'kitchen', 'cafe', 'rooftop-deck', 'terrace', '00-aerial', '01-forecourt'];
+    var slugOrder = [];
+    slots.forEach(function (s) { if (slugOrder.indexOf(s.slug) < 0) slugOrder.push(s.slug); });
+    var rank = function (f) { var i = ORDER.indexOf(f); return i < 0 ? ORDER.length : i; };
+    slots.sort(function (a, b) { return (slugOrder.indexOf(a.slug) - slugOrder.indexOf(b.slug)) || (rank(a.file) - rank(b.file)); });
+    var models = (manifest.summary || []).map(function (s) { return s.model; });
+
+    document.getElementById('cost').textContent = (manifest.summary || []).map(function (s) {
+      return LABEL[s.model] + ': ' + s.images + ' imgs, ~' + s.avg_seconds + 's each, ' +
+        (s.est_cost != null ? '$' + s.est_cost : 'cost on fal dashboard');
+    }).join('  ·  ');
+
+    main.innerHTML = '';
+    var lastSlug = null;
+    slots.forEach(function (slot) {
+      if (slot.slug !== lastSlug) {
+        lastSlug = slot.slug;
+        var h = el('h2', null, slot.slug.replace('hubtown-', 'Hubtown ').replace(/\b\w/g, function (c) { return c.toUpperCase(); }));
+        var n = slots.filter(function (s) { return s.slug === slot.slug; }).length;
+        h.appendChild(el('small', null, n + ' slots'));
+        main.appendChild(h);
+      }
+      var box = el('section', 'slot');
+      var head = el('div', 'slot__head');
+      head.appendChild(el('span', 'slot__name', slot.file === 'card' ? 'Map card' : slot.file));
+      var state = el('span', 'slot__state');
+      head.appendChild(state);
+      box.appendChild(head);
+
+      var opts = el('div', 'opts'), figs = {};
+      var choices = models.slice();
+      var live = livePath(slot.slug, slot.file);
+      if (live) choices.push('current');
+
+      choices.forEach(function (m) {
+        var r = slot.opts[m];
+        var src = m === 'current' ? live : r && '../' + r.path;
+        if (!src) { var miss = el('figure', 'opt opt--missing', LABEL[m] + ': failed'); opts.appendChild(miss); return; }
+        var fig = el('figure', 'opt');
+        fig.tabIndex = 0;
+        fig.setAttribute('role', 'button');
+        fig.setAttribute('aria-label', 'Choose ' + LABEL[m] + ' for ' + slot.key);
+        var img = el('img');
+        img.src = src;
+        img.loading = 'lazy';
+        img.alt = LABEL[m] + ' — ' + slot.key;
+        if (m === 'current') img.onerror = function () { fig.remove(); }; // no live image for this slot
+        fig.appendChild(img);
+        var a = el('a', 'full', 'Open full size');
+        a.href = src; a.target = '_blank'; a.rel = 'noopener';
+        a.addEventListener('click', function (e) { e.stopPropagation(); });
+        fig.appendChild(a);
+        fig.appendChild(el('span', 'tick', '✓'));
+        var cap = el('figcaption');
+        cap.appendChild(el('b', null, LABEL[m]));
+        cap.appendChild(el('span', null, r ? (r.width || '?') + '×' + (r.height || '?') + ' · ' + r.seconds.toFixed(1) + 's' : 'already on the site'));
+        fig.appendChild(cap);
+        function choose() { pick(slot, m); }
+        fig.addEventListener('click', choose);
+        fig.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(); } });
+        figs[m] = fig;
+        opts.appendChild(fig);
+      });
+      box.appendChild(opts);
+
+      var row = el('div', 'row2');
+      var redo = el('button', 'btn', 'Neither — regenerate');
+      redo.type = 'button';
+      redo.addEventListener('click', function () { pick(slot, 'redo'); });
+      row.appendChild(redo);
+      var note = el('input', 'note');
+      note.placeholder = 'Note for this slot (optional): what to change, why this one…';
+      note.value = (picks[slot.key] && picks[slot.key].note) || '';
+      note.addEventListener('input', function () {
+        picks[slot.key] = picks[slot.key] || {};
+        picks[slot.key].note = note.value;
+        save();
+      });
+      row.appendChild(note);
+      box.appendChild(row);
+
+      var det = el('details');
+      det.appendChild(el('summary', null, 'Prompt'));
+      det.appendChild(el('p', null, slot.prompt));
+      box.appendChild(det);
+
+      slot.paint = function () {
+        var c = picks[slot.key] && picks[slot.key].choice;
+        Object.keys(figs).forEach(function (m) { figs[m].classList.toggle('on', c === m); figs[m].setAttribute('aria-pressed', String(c === m)); });
+        redo.classList.toggle('on', c === 'redo');
+        box.classList.toggle('picked', !!c);
+        state.textContent = c ? (c === 'redo' ? 'Regenerate' : 'Using ' + LABEL[c]) : 'Not decided';
+      };
+      slot.paint();
+      main.appendChild(box);
+    });
+    progress();
+  }
+
+  function pick(slot, choice) {
+    var cur = picks[slot.key] || {};
+    cur.choice = cur.choice === choice ? null : choice; // click again to undo
+    picks[slot.key] = cur;
+    slot.paint();
+    progress();
+    save();
+  }
+
+  fetch('selections.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
+    .then(function (s) {
+      picks = (s && s.picks) || {};
+      return fetch('manifest.json');
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (m) { render(m); setStatus('Picks save automatically', ''); })
+    .catch(function () {
+      main.innerHTML = '<p class="empty">Could not load manifest.json — open this page via node serve.js at http://localhost:8080/generated/compare.html</p>';
+      setStatus('');
+    });
+})();
+</script>
+</body>
+</html>

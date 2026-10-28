@@ -201,6 +201,130 @@ Five properties, five distinct architectural identities. Each has its own materi
 
 ---
 
+## 4. New projects — Aria, Verde, Marina
+
+Three new properties, each with its own identity that doesn't overlap the existing five. All three sit at the top of the market: fewer, larger homes and a flagship headquarters, with the restraint of very expensive buildings rather than showy ones.
+
+| Property | Type | Status | Identity | Signature materials | Light signature |
+|---|---|---|---|---|---|
+| Aria | Residential | Under Construction | Sculpted, musical, gallery-quiet | Ivory Venetian plaster, pale Calacatta, white oak, champagne bronze, bouclé | Pearlescent: soft high-key day, pale dusk |
+| Verde | Residential | Upcoming | Forest private-members' club | Malachite-green marble, smoked oak, basalt, fluted bronze, leather | Monsoon mist, low-key, green-filtered |
+| Marina | Commercial | Upcoming | Marine Drive Art Deco, reinterpreted | Ivory limestone, polished nickel, navy lacquer, teak, wave-fluted glass | West-facing: sunset into blue hour over the Arabian Sea |
+
+**How they stay apart from the existing set:**
+- **Aria vs Premiere:** both are luxury residential. Premiere is dark, heavy and old-money. Aria is light, curved and modern: no corners, ivory and pale stone.
+- **Verde vs Harmony:** both are green. Harmony is sunlit tropical with cane and terracotta. Verde is moody and nocturnal: basalt, malachite and bronze, always in mist or rain.
+- **Marina vs Solaris, Viva and Celeste:** Solaris is brass and golden, Viva is concrete and greenery, Celeste is cold aluminium. Marina is maritime and nautical, and it is the only building with the sea in every frame.
+
+---
+
+### 4A · Project cards
+
+3 images · **16:9 landscape** · `uploads/images/projects/`
+
+#### `hubtown-aria.jpeg` — Residential, Goregaon (W), Under Construction
+**Concept:** a slender tower whose balcony slab edges shift floor by floor, so the white facade ripples like a sound wave. The card shows it honestly mid-build: the lower floors are finished and the crown is still in scaffold, matching how Viva's card shows its status.
+
+> A wide shot of a slender residential tower nearing completion at blue hour, its lower two-thirds finished in flowing ivory balcony ribbons that undulate floor by floor like a sound wave, the upper floors still raw concrete wrapped in pale safety mesh beneath a tower crane, the foreground showing a quiet Goregaon street lined with old rain trees and a softly lit site hoarding, the midground holding the rippling white facade with a few warmly lit sample-flat windows, and the background fading into the dusky Goregaon skyline, composed with the tower on the right third and the crane jib cutting a clean diagonal, lit by soft violet dusk ambience with warm work lights on the upper deck and a cool white facade wash, captured with a 35mm lens producing natural perspective and mild atmospheric compression, shot on an ARRI Alexa 35 in 4K, photorealistic, finished with a cool pearlescent cinematic grade, deep blacks, soft highlight roll-off, and fine grain.
+
+#### `hubtown-verde.jpeg` — Residential, Goregaon (W), Upcoming
+**Concept:** the tower faces east onto the Aarey forest and the national-park hills. A dark basalt-and-bronze shaft is cut by staggered double-height sky-garden loggias, and each loggia holds one mature tree. It's an upcoming project, so this is an architectural visualisation, like Harmony's card, but set in monsoon mist instead of sun.
+
+> A wide architectural visualization of an upcoming residential tower at dawn in monsoon mist, a dark basalt-and-bronze facade punctuated by staggered double-height sky-garden loggias each holding a single mature tree, the foreground showing wet forest canopy at the edge of Aarey with mist threading through the leaves, the midground holding the tower rising cleanly out of the greenery with warm lamplight in a few loggias, and the background dissolving into layered green hills under low monsoon cloud, composed with the tower slightly left of center and the forest edge forming a soft lower frame, lit by diffused overcast dawn light with warm interior practicals and a faint violet cast in the cloud, captured with a 50mm lens producing gentle compression and layered depth, rendered photorealistically in 4K, finished with a moody green-and-graphite cinematic grade, soft contrast, atmospheric haze, and fine grain.
+
+#### `hubtown-marina.jpeg` — Commercial, Nariman Point, Upcoming
+**Concept:** a flagship headquarters at the tip of Nariman Point that continues Marine Drive's Art Deco heritage. It has ivory limestone fins, a stepped Deco crown and polished-nickel detailing, and it faces west over the Arabian Sea. This image is also the **first frame of the walkthrough video**, so it locks the architecture for every Marina image after it.
+
+> A low-angle wide shot of an upcoming commercial headquarters tower at the tip of Nariman Point at sunset, ivory limestone fins rising to a stepped Art Deco crown trimmed in polished nickel, the foreground showing the curved sea wall and tetrapods with Arabian Sea waves breaking into gold-lit spray, the midground holding the tower base with a glowing double-height glazed lobby and a few silhouetted figures on the promenade, and the background opening onto the open sea horizon with the sun sinking into haze, composed with the sea wall as a long curved leading line into the tower on the right third, lit by low warm sun striking the western facade with a deep violet sky gradient overhead, captured with a 24mm tilt-shift lens producing corrected verticals and expansive scale, shot on a Phase One IQ4 in 4K, photorealistic, finished with a warm-to-violet cinematic grade, deep blacks, golden highlight roll-off, and crisp HDR detail.
+
+---
+
+### 4B · Hubtown Aria — Residential, Goregaon (W)
+**Identity:** sculpted, musical and quiet like a gallery. Ivory Venetian plaster, pale Calacatta, white oak, champagne bronze and bouclé. Walls curve into each other, with no hard corners anywhere. A black lacquered grand piano is the recurring motif.
+**Note:** the building is under construction, so these interiors are the show apartment and the finished amenities as they will be.
+
+`uploads/images/interiors/hubtown-aria/`
+
+**`arrival.jpeg`**
+> A wide shot of a residential arrival court at blue hour beneath a sweeping cantilevered canopy whose ivory underside ripples in soft waves, the foreground showing pale honed limestone paving and a still circular reflecting pool mirroring the canopy, the midground holding a curved glass entrance with a doorman silhouette against a warmly glowing lobby, and the background rising into the undulating ivory balcony ribbons of the tower, composed with the canopy curve sweeping in from the top-left edge, lit by a concealed warm wash grazing the rippled soffit against cool dusk with a faint violet glow in the pool, captured with a 24mm lens producing controlled wide perspective and deep focus, shot on a Phase One IQ4 in 4K, photorealistic, finished with a pearlescent cinematic grade, clean blacks, soft highlight roll-off, and fine grain.
+
+**`lobby.jpeg`**
+> A wide shot of a double-height residential lobby conceived as a quiet concert hall, curved walls of ivory Venetian plaster rising to a ceiling of rippling white-oak acoustic fins, a black lacquered grand piano standing alone on a pale Calacatta floor, the foreground showing a bouclé lounge chair and a champagne-bronze side table in shallow focus, the midground holding the piano under a soft pool of light, and the background revealing a curved glass wall onto a softly lit garden court, composed with the wall curve and fin rhythm drawing the eye to the piano, lit by diffused indirect light from the fins with a single warm spot on the piano and a subtle violet wash low on the plaster, captured with a 28mm lens producing natural scale and deep focus, shot on a Sony Venice 2 in 4K, photorealistic, finished with a soft high-key cinematic grade, creamy highlights, gentle shadows, and fine grain.
+
+**`living-room.jpeg`**
+> A wide shot of a show-apartment living room at golden hour where the walls curve seamlessly into floor-to-ceiling glazing so no corner is visible, a sculptural ivory bouclé sofa following the curve beside a low travertine table, the foreground showing a ribbed-glass vase and a folded cashmere throw in shallow focus, the midground holding the sofa on a white-oak floor washed in low sun, and the background opening through curved glass onto the rippling balcony ribbon and the Goregaon skyline toward a hazy sea, composed with the curved wall as a sweeping leading line toward the light, lit by warm low sun with soft bounce off ivory plaster and a faint violet glow at the horizon, captured with a 24mm lens producing spacious perspective and deep focus, shot on a Hasselblad X2D in 4K, photorealistic, finished with a luminous warm-pearl grade, lifted shadows, soft roll-off, and fine grain.
+
+**`master-bedroom.jpeg`**
+> A medium-wide shot of a master bedroom at dawn with a low ivory upholstered bed set into a curved plaster niche, its channel-tufted headboard following the curve, the foreground showing crisp pale linen and a folded silk robe in sharp detail, the midground holding the bed between slim champagne-bronze wall sconces, and the background opening through a curved balcony door where sheer curtains lift in the morning breeze, composed with gentle central symmetry softened by the curve, lit by soft blush dawn light diffused through sheers with warm sconce practicals and faint violet ambience in the shadows, captured with a 35mm lens producing natural perspective and gentle depth of field, shot on a RED V-Raptor in 4K, photorealistic, finished with a soft pearlescent cinematic grade, lifted blacks, delicate highlights, and fine grain.
+
+**`kitchen.jpeg`**
+> A medium-wide shot of a show-apartment kitchen with a sculpted island in book-matched pale Calacatta whose ends round off in smooth bullnose curves, handleless white-oak cabinetry with slim champagne-bronze reveals, the foreground showing the marble edge with a ceramic bowl of white peaches in shallow focus, the midground holding the island beneath a single slim curved pendant, and the background revealing a curved breakfast banquette beside a window onto the balcony ribbon, composed on the rule of thirds with the island's curve leading into depth, lit by soft morning daylight with a warm pendant glow and gentle violet ambience in the shadows, captured with a 35mm lens producing natural perspective and layered depth, shot on an ARRI Alexa Mini LF in 4K, photorealistic, finished with an airy high-key cinematic grade, clean whites, soft contrast, and fine grain.
+
+**`rooftop-deck.jpeg`**
+> A wide shot of a residential rooftop at blue hour where a curved infinity pool traces the rippling edge of the tower crown, ivory limestone decking and sculptural white daybeds set along the curve, the foreground showing the pool's vanishing edge reflecting the sky in still water, the midground holding the daybeds lit by warm low uplights, and the background spreading into the Goregaon skyline with the faint line of the Arabian Sea at the horizon, composed with the pool curve sweeping across the frame toward the city, lit by cool ambient dusk with warm submerged pool light and a deep violet sky gradient, captured with a 24mm lens producing expansive scale and deep focus, shot on an ARRI Alexa 35 in 4K, photorealistic, finished with a cool pearlescent cinematic grade, deep blacks, soft violet highlights, and crisp HDR detail.
+
+---
+
+### 4C · Hubtown Verde — Residential, Goregaon (W)
+**Identity:** a private members' club in the forest. Malachite-green marble, smoked oak, basalt, fluted bronze and deep leather, with jewel tones and low light. Every view looks out onto forest canopy, mist or rain. The double-height loggia with its own tree appears inside the apartments too.
+
+`uploads/images/interiors/hubtown-verde/`
+
+**`arrival.jpeg`**
+> A wide shot of a residential arrival court at dawn in light monsoon rain, a dark basalt porte-cochère cut into the forest edge with a huge rain tree rising through an open oculus in the canopy, the foreground showing wet black basalt setts reflecting bronze lanterns in long streaks, the midground holding the canopy and a bronze-framed entrance with a doorman under a black umbrella in soft focus, and the background revealing a forest-green lobby glowing through tall glazing with mist-veiled hills beyond, composed with the tree trunk as a strong central vertical, lit by soft grey dawn with warm bronze lantern light and a cool violet cast in the mist, captured with a 28mm lens producing controlled perspective and deep focus, shot on a Phase One IQ4 in 4K, photorealistic, finished with a moody green-and-graphite cinematic grade, deep blacks, soft highlights, and fine grain.
+
+**`lobby.jpeg`**
+> A wide shot of a residential lobby designed like a private forest club, walls of deep malachite-veined green marble and smoked-oak panelling around a long bronze-hooded fireplace with a low flame, deep cognac leather club chairs gathered on a dark wool rug, the foreground showing a fluted bronze side table with a crystal tumbler in shallow focus, the midground holding the chairs in firelight, and the background framing mist-filled forest canopy through a full-height window, composed with the fireplace as a horizontal anchor and the window as a cool vertical, lit by warm firelight and low lamps against cool green daylight with a violet accent grazing the marble veining, captured with a 35mm lens producing natural perspective and gentle depth falloff, shot on a Sony Venice 2 in 4K, photorealistic, finished with a rich low-key jewel-tone cinematic grade, deep shadows, and subtle grain.
+
+**`living-room.jpeg`**
+> A wide shot of a double-height apartment living room opening onto a private sky-garden loggia where a mature tree grows from a sunken planter beyond a full-height glass wall, a deep forest-green velvet sofa on a smoked-oak floor, the foreground showing a basalt coffee table with a shallow moss bowl and stacked books in shallow focus, the midground holding the sofa and a bronze floor lamp, and the background revealing the tree and the forest canopy beneath drifting monsoon cloud, composed with the tree framed centrally by the glass wall, lit by soft green-filtered overcast daylight with warm lamp practicals and faint violet ambience, captured with a 24mm lens producing spacious perspective and deep focus, shot on a Hasselblad X2D in 4K, photorealistic, finished with a moody green cinematic grade, rich mid-tones, soft contrast, and fine grain.
+
+**`master-bedroom.jpeg`**
+> A medium-wide shot of a master bedroom at dusk during monsoon rain, a low smoked-oak bed against a wall of fluted bronze panels, dressed in deep green linen with a mohair throw, the foreground showing raindrops streaking a frameless glass wall in sharp detail, the midground holding the bed between warm bronze reading lamps, and the background dissolving into mist-covered forest with a few distant lights, composed with formal central symmetry broken by rain streaks, lit by warm reading lamps against cool blue-green dusk through wet glass with a violet hint in the cloud, captured with a 35mm lens producing natural perspective and gentle depth of field, shot on a RED V-Raptor in 4K, photorealistic, finished with a low-key moody cinematic grade, deep greens, soft warm highlights, and fine grain.
+
+**`kitchen.jpeg`**
+> A medium-wide shot of a chef's kitchen built around a monolithic island carved from dark green Verde Guatemala marble, smoked-oak cabinetry and an aged-bronze hood and tap, the foreground showing the stone edge with fresh herbs and a basalt mortar in shallow focus, the midground holding the island beneath two low bronze pendants, and the background revealing the sky-garden loggia with its tree in soft focus beyond glass, composed on the rule of thirds with the island as a heavy horizontal mass, lit by soft overcast daylight from the loggia with warm under-cabinet glow and faint violet ambience in the shadows, captured with a 35mm lens producing natural perspective and layered depth, shot on an ARRI Alexa Mini LF in 4K, photorealistic, finished with a rich green-and-bronze cinematic grade, deep shadows, and subtle grain.
+
+**`rooftop-deck.jpeg`**
+> A wide shot of a residential rooftop at blue hour with a dark basalt-lined pool lit from below in deep emerald, a planted grove of young trees and ferns around teak daybeds beneath a slender bronze pergola, the foreground showing wet fern fronds in shallow focus against the still pool, the midground holding the daybeds lit by warm low lanterns, and the background spreading into the dark ridgeline of the national park on one side and the glittering Goregaon grid on the other under low cloud catching city glow, composed with the pool as a leading line toward the ridge, lit by cool ambient dusk with emerald pool light and a deep violet sky, captured with a 24mm lens producing expansive scale and deep focus, shot on an ARRI Alexa 35 in 4K, photorealistic, finished with a moody green-to-violet cinematic grade, deep blacks, and crisp HDR detail.
+
+---
+
+### 4D · Hubtown Marina — Commercial, Nariman Point
+**Identity:** Marine Drive Art Deco, reinterpreted. Ivory limestone, polished nickel, deep navy lacquer, teak decking and wave-fluted glass, plus a brass compass rose set into the terrazzo, like an ocean liner. The building faces west over the Arabian Sea.
+**Time arc:** the set doubles as the walkthrough storyboard (`skills/MARINA-WALKTHROUGH.md`), so the light moves from late golden hour at arrival to blue hour on the roof. Keep that order.
+**Resolution:** generate this set at **2K 16:9 (at least 1920×1080)** so each image can be a clean first frame for 1080p video.
+
+`uploads/images/interiors/hubtown-marina/`
+
+**`reception.jpeg`** (golden hour)
+> A wide shot of a headquarters reception with a long desk of ivory limestone banded in polished nickel in a stepped Art Deco profile, set against a full-height wall of wave-fluted glass backlit in warm white, the foreground showing a white terrazzo floor inlaid with a polished brass compass rose, the midground holding the desk with a receptionist in soft focus, and the background revealing deep navy lacquered walls framing a glimpse of the sunlit Arabian Sea, composed with formal symmetry along the compass-rose axis, lit by low golden sun entering from the west with a concealed warm cove behind the fluted glass and a violet accent under the desk's nickel band, captured with a 24mm lens producing controlled wide perspective and deep focus, shot on a Phase One IQ4 in 4K, photorealistic, finished with a warm maritime cinematic grade, deep navy shadows, golden highlight roll-off, and clean HDR detail.
+
+**`lobby.jpeg`** (golden hour, sun lower)
+> A wide shot of a triple-height headquarters atrium whose entire western wall is glazing onto the Arabian Sea, stepped ivory limestone galleries tiering up both sides like the decks of an ocean liner with polished-nickel railings, the foreground showing a long teak-and-nickel bench in shallow focus, the midground holding a lone executive crossing the terrazzo floor in silhouette, and the background filled by the sea horizon with the sun low and burning gold, composed in one-point perspective toward the sea with the galleries as converging leading lines, lit by warm horizontal sunset light flooding across the floor in long shadows with a violet sky beginning above, captured with a 24mm lens producing grand scale and deep focus, shot on a Sony Venice 2 in 4K, photorealistic, finished with a warm high-contrast cinematic grade, deep shadows, golden roll-off, and fine grain.
+
+**`workspace.jpeg`** (sunset)
+> A wide shot of an executive office floor at sunset with long teak desks running parallel to a floor-to-ceiling window onto the Arabian Sea, navy leather chairs and slim polished-nickel task lamps, the foreground showing a teak desk edge with a leather notebook and fountain pen in sharp detail, the midground holding a few professionals in soft focus, and the background revealing the sea and the curve of Marine Drive catching the last light, composed with the desk rows as leading lines toward the window, lit by warm horizontal sunset light with cool navy shadow and a violet accent beneath the desk edges, captured with a 35mm lens producing natural perspective and layered depth, shot on an ARRI Alexa Mini LF in 4K, photorealistic, finished with a warm cinematic grade, deep navy shadows, amber highlights, and subtle grain.
+
+**`boardroom.jpeg`** (sunset peak)
+> A wide shot of a corner boardroom cantilevered over the sea at the peak of sunset, a single-slab table of book-matched ivory marble edged in polished nickel beneath a stepped Art Deco ceiling coffer with concealed warm light, navy leather chairs aligned along its length, the foreground showing a chair back and a crystal water glass catching the sun, the midground holding the full table axis, and the background framed by two walls of glass with the sun touching the Arabian Sea horizon and Marine Drive curving away to the north, composed with exact central symmetry along the table, lit by blazing low sun backlighting the room with warm coffer fill and a violet sky overhead, captured with a 24mm lens producing controlled wide perspective and deep focus, shot on a Hasselblad X2D in 4K, photorealistic, finished with a warm high-contrast cinematic grade, deep blacks, and soft golden roll-off.
+
+**`cafe.jpeg`** (dusk)
+> A medium-wide shot of a sea-facing executive café styled like a classic ocean-liner lounge just after sunset, a curved teak bar with a polished-nickel rail and navy lacquer front sweeping across the frame, the foreground showing an espresso cup on a nickel saucer in sharp macro detail, the midground holding a barista mid-pour in soft motion, and the background opening onto curved navy banquettes beneath a wide window where the sky glows pink-violet over the sea and the first Marine Drive streetlights flicker on, composed on the rule of thirds with the bar curve as a strong leading line, lit by warm opal globe pendants against cool dusk with a violet sky wash, captured with a 50mm lens producing natural perspective and shallow depth of field, shot on a RED V-Raptor in 4K, photorealistic, finished with a warm-to-cool cinematic grade, deep shadows, and gentle grain.
+
+**`terrace.jpeg`** (blue hour: the finale)
+> A wide shot of a rooftop sky deck at blue hour atop a Nariman Point tower, teak decking and an infinity-edge reflecting pool that appears to spill into the Arabian Sea, low ivory limestone planters and navy-upholstered lounges along the edge, the foreground showing the pool's vanishing edge mirroring the sky, the midground holding the lounges lit by warm floor uplights, and the background sweeping along the full Queen's Necklace of Marine Drive curving north to Malabar Hill and glittering with streetlights, composed with the pool edge and the necklace curve as twin sweeping leading lines, lit by cool ambient dusk with warm deck lighting and a deep violet sky gradient, captured with a 24mm lens producing expansive scale and deep focus, shot on an ARRI Alexa 35 in 4K, photorealistic, finished with a cool-to-violet cinematic grade, deep blacks, golden streetlight highlights, and crisp HDR detail.
+
+**Video-only frames:** these are not used on the site. They are extra keyframes for the walkthrough. Save them to `uploads/video/hubtown-marina/frames/`.
+
+**`00-aerial.jpeg`** (golden hour)
+> An aerial wide shot approaching Nariman Point from over the Arabian Sea at golden hour, an ivory limestone tower with a stepped Art Deco crown trimmed in polished nickel rising at the tip of the peninsula among the existing skyline, the foreground showing gentle sea swells glittering with sunlight, the midground holding the tetrapod sea wall and the start of Marine Drive's curve, and the background filled with dense south Mumbai towers fading toward the hazy green of Malabar Hill, composed with the tower on the right third and the Marine Drive curve as a leading line, lit by warm low sun from behind the camera painting the western facades gold under a soft violet-tinged sky, captured with a 35mm lens producing natural aerial perspective and deep focus, shot on an ARRI Alexa 35 in 4K, photorealistic, finished with a warm cinematic grade, soft haze, golden highlights, and crisp HDR detail.
+
+**`01-forecourt.jpeg`** (late golden hour)
+> A wide shot of a headquarters arrival forecourt in late golden light, a stepped ivory limestone portal framing tall polished-nickel Art Deco doors, the foreground showing honed terrazzo paving with a brass compass inlay glinting in the sun, the midground holding an unbranded black luxury sedan drawn up at the portal with a uniformed doorman opening its rear door, and the background revealing the glowing triple-height atrium through the glazing with the sea visible beyond, composed with formal symmetry on the portal axis, lit by warm raking sun casting long Deco shadows across the limestone with a cool navy shade under the canopy and a violet edge in the sky, captured with a 28mm lens producing controlled perspective and deep focus, shot on a Phase One IQ4 in 4K, photorealistic, finished with a warm maritime cinematic grade, deep shadows, and golden roll-off.
+
+---
+
 ## Home page
 
 No images needed — the scrub video at `site/uploads/scrub60.mp4` already covers it.
@@ -214,12 +338,17 @@ No images needed — the scrub video at `site/uploads/scrub60.mp4` already cover
 | Careers portraits (4:5) | 5 | ✅ done |
 | Project cards (16:9) | 5 | ✅ done |
 | Interiors — 5 properties × 6 rooms | 30 | pending |
-| **Total** | **40** | |
+| New project cards — Aria, Verde, Marina (16:9) | 3 | ✅ done (picked in generated/compare.html) |
+| New interiors — 3 properties × 6 rooms | 18 | ✅ done |
+| Marina video-only keyframes | 2 | ✅ done (uploads/video/hubtown-marina/frames/) |
+| **Total** | **63** | |
+
+**Suggested generation order for the new set:** generate the three cards first. Then use each card as a **reference image** for that property's interiors (on models that accept a reference, e.g. an edit/reference endpoint) so the architecture and materials stay consistent across the set.
 
 Every interior prompt is unique — no two properties share a template. Generate them per property folder so each page reads as a different building.
 
 **Room slugs by type:**
-- Commercial (Solaris, Viva, Celeste): `reception` `lobby` `workspace` `boardroom` `cafe` `terrace`
-- Residential (Premiere, Harmony): `arrival` `lobby` `living-room` `master-bedroom` `kitchen` `rooftop-deck`
+- Commercial (Solaris, Viva, Celeste, Marina): `reception` `lobby` `workspace` `boardroom` `cafe` `terrace`
+- Residential (Premiere, Harmony, Aria, Verde): `arrival` `lobby` `living-room` `master-bedroom` `kitchen` `rooftop-deck`
 
 **Save as `.jpeg`** to match the careers/projects convention already wired into the code.
