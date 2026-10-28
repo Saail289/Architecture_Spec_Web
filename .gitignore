@@ -1,7 +1,42 @@
+# ---- Secrets: API keys live in .env and must never be committed ----
+.env
+.env.*
+*.env
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json
+
+# ---- Generated AI test output (images from the model comparison, picks) ----
+generated/
+
+# ---- Video: raw downloads are too big for git (GitHub rejects files > 100 MB) ----
+# Keep only the web-encoded film the site plays; masters and per-shot takes stay local.
+*.master.mp4
+uploads/video/*/clips/
+
+# ---- Dependencies & build caches ----
 node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ---- Logs & temp ----
+*.log
+npm-debug.log*
+*.tmp
+*.bak
+
+# ---- OS & editor files ----
 .DS_Store
 Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# ---- Local archives & handoff material ----
 *.zip
 handoff/
-.env
-generated/
