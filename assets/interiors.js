@@ -55,9 +55,10 @@
   var slug = new URLSearchParams(location.search).get('p');
   var prop = DATA[slug] || DATA['hubtown-solaris'];
   var propSlug = DATA[slug] ? slug : 'hubtown-solaris';
-  // A project with a walkthrough film gets it as the last stop. Until the file exists, the panel
-  // shows the exterior with "Coming soon"; once it's there it plays without any code change.
-  var ROOMS = ROOM_SETS[prop.type].concat(prop.film ? [{ room: 'Walkthrough Film', tag: 'Film', film: prop.film }] : []);
+  // A project with a walkthrough film shows it right after the cover, before the rooms. Until the
+  // file exists, the panel shows the exterior with "Coming soon"; once it's there it plays.
+  var ROOMS = ROOM_SETS[prop.type].slice();
+  if (prop.film) ROOMS.splice(1, 0, { room: 'Walkthrough Film', tag: 'Film', film: prop.film });
   document.title = prop.name + ' — Interiors — Hubtown';
 
   var panelsWrap = document.getElementById('panels');
@@ -110,7 +111,10 @@
 
     var video = el.querySelector('video');
     if (video) {
-      video.addEventListener('loadeddata', function () { el.classList.add('is-ready'); });
+      video.addEventListener('loadeddata', function () {
+        el.classList.add('is-ready');
+        if (activeDot === i) video.play().catch(function () {}); // already on this panel when it finished loading
+      });
       var sound = el.querySelector('.film__sound');
       sound.addEventListener('click', function () {
         video.muted = !video.muted;

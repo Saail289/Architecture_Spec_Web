@@ -62,8 +62,12 @@ html, body { height: 100%; overflow-x: hidden; }
 .hero-i__clip + .hero-i__clip { margin-top: 18px; }
 .hero-i__eyebrow {
   animation: ht-rise 1.05s cubic-bezier(.16, 1, .3, 1) .5s both;
-  font-size: 11px; font-weight: 600; letter-spacing: 0.28em;
-  text-transform: uppercase; color: rgba(155, 107, 255, 0.85);
+  /* a dark pill so the label holds up over bright skies, not just dark photos */
+  display: inline-block; padding: 8px 18px; border-radius: 999px;
+  border: 1px solid rgba(201, 180, 255, 0.35); background: rgba(10, 10, 11, 0.45);
+  backdrop-filter: blur(10px);
+  font-size: 13px; font-weight: 600; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--lilac-soft);
 }
 .hero-i__title {
   margin: 0; animation: ht-rise 1.1s cubic-bezier(.16, 1, .3, 1) .62s both;
@@ -72,7 +76,8 @@ html, body { height: 100%; overflow-x: hidden; }
 }
 .hero-i__meta {
   animation: ht-rise 1s cubic-bezier(.16, 1, .3, 1) .78s both;
-  font-size: clamp(14px, 1.5vw, 19px); letter-spacing: 0.04em; color: var(--muted-2);
+  font-size: clamp(14px, 1.5vw, 19px); letter-spacing: 0.04em; color: rgba(246, 243, 244, 0.92);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 18px rgba(0, 0, 0, 0.7);
 }
 
 .int-head {
