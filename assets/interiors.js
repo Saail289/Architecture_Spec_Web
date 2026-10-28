@@ -6,7 +6,11 @@
     'hubtown-viva':     { name: 'Hubtown Viva',     loc: 'Jogeshwari (E), Mumbai', type: 'Commercial' },
     'hubtown-premiere': { name: 'Hubtown Premiere', loc: 'Andheri (W), Mumbai',    type: 'Residential' },
     'hubtown-harmony':  { name: 'Hubtown Harmony',  loc: 'Goregaon (W), Mumbai',   type: 'Residential' },
-    'hubtown-celeste':  { name: 'Hubtown Celeste',  loc: 'Vile Parle (E), Mumbai', type: 'Commercial' }
+    'hubtown-celeste':  { name: 'Hubtown Celeste',  loc: 'Vile Parle (E), Mumbai', type: 'Commercial' },
+    'hubtown-aria':     { name: 'Hubtown Aria',     loc: 'Goregaon (W), Mumbai',   type: 'Residential' },
+    'hubtown-verde':    { name: 'Hubtown Verde',    loc: 'Goregaon (W), Mumbai',   type: 'Residential' },
+    'hubtown-marina':   { name: 'Hubtown Marina',   loc: 'Nariman Point, Mumbai',  type: 'Commercial',
+                          film: 'uploads/video/hubtown-marina/walkthrough-30s-1080p.mp4' }
   };
 
   // Room sets differ by building type — a commercial tower has no master bedroom.
@@ -51,7 +55,9 @@
   var slug = new URLSearchParams(location.search).get('p');
   var prop = DATA[slug] || DATA['hubtown-solaris'];
   var propSlug = DATA[slug] ? slug : 'hubtown-solaris';
-  var ROOMS = ROOM_SETS[prop.type];
+  // A project with a walkthrough film gets it as the last stop. Until the file exists, the panel
+  // shows the exterior with "Coming soon"; once it's there it plays without any code change.
+  var ROOMS = ROOM_SETS[prop.type].concat(prop.film ? [{ room: 'Walkthrough Film', tag: 'Film', film: prop.film }] : []);
   document.title = prop.name + ' — Interiors — Hubtown';
 
   var panelsWrap = document.getElementById('panels');
@@ -77,18 +83,24 @@
       '<div class="room">' +
         '<span class="room__tag">' + esc(r.tag) + '</span>' +
         '<span class="room__name">' + esc(r.room) + '</span>' +
+        (r.film ? '<span class="room__soon">Coming soon</span>' : '') +
       '</div>';
 
-    el.innerHTML =
-      '<div class="panel-i__img" style="background:' + GRADS[i % GRADS.length] + '">' +
-        '<img class="panel-i__photo" src="' + (r.hero
+    var media = r.film
+      ? '<video class="panel-i__photo" src="' + r.film + '" poster="uploads/images/projects/' + propSlug + '.jpeg"' +
+          ' muted loop playsinline preload="metadata" aria-label="' + esc(prop.name) + ' walkthrough film"></video>'
+      : '<img class="panel-i__photo" src="' + (r.hero
           ? 'uploads/images/projects/' + propSlug + '.jpeg'
           : 'uploads/images/interiors/' + propSlug + '/' + r.img + '.jpeg') + '"' +
           ' alt="' + esc(prop.name) + (r.room ? ' — ' + esc(r.room) : '') + '"' +
-          (i > 1 ? ' loading="lazy"' : '') + ' decoding="async">' +
+          (i > 1 ? ' loading="lazy"' : '') + ' decoding="async">';
+
+    el.innerHTML =
+      '<div class="panel-i__img" style="background:' + GRADS[i % GRADS.length] + '">' + media +
         '<div class="panel-i__grid"></div>' + room +
       '</div>' +
-      '<div class="panel-i__scrim"></div>' + inner;
+      '<div class="panel-i__scrim"></div>' + inner +
+      (r.film ? '<button class="film__sound" type="button" aria-pressed="false">Sound off</button>' : '');
 
     panelsWrap.appendChild(el);
 
@@ -96,7 +108,18 @@
     dot.className = 'dot';
     dotsWrap.appendChild(dot);
 
-    return { wrap: el, img: el.querySelector('.panel-i__img'), dot: dot };
+    var video = el.querySelector('video');
+    if (video) {
+      video.addEventListener('loadeddata', function () { el.classList.add('is-ready'); });
+      var sound = el.querySelector('.film__sound');
+      sound.addEventListener('click', function () {
+        video.muted = !video.muted;
+        sound.textContent = video.muted ? 'Sound off' : 'Sound on';
+        sound.setAttribute('aria-pressed', String(!video.muted));
+      });
+    }
+
+    return { wrap: el, img: el.querySelector('.panel-i__img'), dot: dot, video: video };
   });
 
   stage.style.height = (ROOMS.length * 100) + 'vh';
@@ -131,7 +154,13 @@
     var act = Math.min(panels.length - 1, Math.round(p));
     if (act !== activeDot) {
       activeDot = act;
-      panels.forEach(function (pn, i) { pn.dot.classList.toggle('is-on', i === act); });
+      panels.forEach(function (pn, i) {
+        pn.dot.classList.toggle('is-on', i === act);
+        // the film only plays while it's the panel in view
+        if (pn.video && pn.wrap.classList.contains('is-ready')) {
+          if (i === act) pn.video.play().catch(function () {}); else pn.video.pause();
+        }
+      });
     }
 
     requestAnimationFrame(loop);

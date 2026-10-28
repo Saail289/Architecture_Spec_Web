@@ -114,3 +114,18 @@ html, body { height: 100%; overflow-x: hidden; }
   transition: background .35s, border-color .35s, transform .35s;
 }
 .dot.is-on { background: var(--lilac); border-color: var(--lilac); transform: scale(1.5); }
+
+/* ---------- walkthrough film panel ---------- */
+.room__soon {
+  margin-top: 6px; padding: 7px 14px; border: 1px solid rgba(246, 243, 244, 0.25); border-radius: 999px;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(246, 243, 244, 0.8);
+}
+.panel-i.is-ready .room { opacity: 0; transition: opacity .8s ease; }
+.film__sound {
+  position: absolute; right: 44px; bottom: 40px; z-index: 5; display: none;
+  padding: 10px 18px; border: 1px solid var(--hair-3); border-radius: 999px;
+  background: rgba(10, 10, 11, 0.5); backdrop-filter: blur(10px); color: var(--paper);
+  font: 500 11px var(--sans); letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer;
+}
+.film__sound:hover { border-color: var(--lilac); color: var(--lilac); }
+.panel-i.is-ready .film__sound { display: block; }

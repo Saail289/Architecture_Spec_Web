@@ -9,7 +9,7 @@ per-property interior tours.
 | Page | What it does |
 |---|---|
 | `index.html` | Scrub-video hero, six scroll-locked panels |
-| `projects.html` | Zoomable map of Mumbai with filterable project markers |
+| `projects.html` | Three.js 3D map of Mumbai — scroll/drag/fly-to areas, project list, filters |
 | `interiors.html` | Per-property room tour — `?p=hubtown-solaris` |
 | `careers.html` | Open roles with scramble-reveal text |
 | `apply.html` | Application form (preview only, does not submit) |
@@ -38,4 +38,9 @@ uploads/
     interiors/   <project-slug>/<room>.jpeg
   *.mp4          scrub-driven background video
 skills/          image-generation prompt specs
+scripts/
+  build-map.mjs  rebuilds assets/map/mumbai.bin (roads + coastline) from OpenStreetMap
 ```
+
+The projects map draws Mumbai from `assets/map/mumbai.bin`. To refresh it:
+`node scripts/build-map.mjs`. Map data © OpenStreetMap contributors (ODbL).
